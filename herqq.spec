@@ -1,7 +1,7 @@
 Summary:	A library for building UPnP devices and control points
 Name:		herqq
 Version:	1.0.0
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		Applications
 Source0:	http://downloads.sourceforge.net/hupnp/%{name}-%{version}.zip
@@ -43,10 +43,13 @@ qmake-qt4
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_includedir}/HUpnpCore,%{_libdir}}
+
+%{__make} install
+
+install -d $RPM_BUILD_ROOT{%{_includedir},%{_libdir}}
 
 cp hupnp/bin/lib* $RPM_BUILD_ROOT%{_libdir}
-cp hupnp/include/HUpnpCore/H* $RPM_BUILD_ROOT%{_includedir}/HUpnpCore
+cp -a hupnp/deploy/include/HUpnpCore $RPM_BUILD_ROOT%{_includedir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT

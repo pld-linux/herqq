@@ -1,7 +1,7 @@
 Summary:	A library for building UPnP devices and control points
 Name:		herqq
 Version:	1.0.0
-Release:	3
+Release:	4
 License:	GPL v3+
 Group:		Applications
 Source0:	http://downloads.sourceforge.net/hupnp/%{name}-%{version}.zip
@@ -55,6 +55,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_includedir},%{_libdir}}
 
 cp -a hupnp/bin/lib* $RPM_BUILD_ROOT%{_libdir}
+rm $RPM_BUILD_ROOT%{_libdir}/lib*.so.1.0
 cp -a hupnp/deploy/include/HUpnpCore $RPM_BUILD_ROOT%{_includedir}
 
 %clean
@@ -66,10 +67,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libHUpnp.so.*.*.*
-%attr(755,root,root) %{_libdir}/libHUpnp.so.*.*
 %attr(755,root,root) %ghost %{_libdir}/libHUpnp.so.1
 %attr(755,root,root) %{_libdir}/libQtSolutions_SOAP-2.7.so.*.*.*
-%attr(755,root,root) %{_libdir}/libQtSolutions_SOAP-2.7.so.*.*
 %attr(755,root,root) %ghost %{_libdir}/libQtSolutions_SOAP-2.7.so.1
 
 %files devel

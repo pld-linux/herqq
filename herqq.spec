@@ -7,6 +7,12 @@ Group:		Applications
 Source0:	http://downloads.sourceforge.net/hupnp/%{name}-%{version}.zip
 # Source0-md5:	45a0632f7c7b64bc0fdab852d36c1e61
 URL:		http://www.herqq.org/
+BuildRequires:	QtCore-devel
+BuildRequires:	QtGui-devel
+BuildRequires:	QtNetwork-devel
+BuildRequires:	QtTest-devel
+BuildRequires:	QtXml-devel
+BuildRequires:	libstdc++-devel
 BuildRequires:	qt4-build >= 4.3.3-3
 BuildRequires:	qt4-qmake >= 4.3.3-3
 BuildRequires:	rpmbuild(macros) >= 1.129
